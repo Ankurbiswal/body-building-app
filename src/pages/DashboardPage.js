@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -14,7 +14,6 @@ const DashboardPage = () => {
   const [analysisResult, setAnalysisResult] = useState(null);
 
   const calories = PersonalizationEngine.calculateCalories(userData);
-  const macros = PersonalizationEngine.calculateMacros(calories, userData.goal);
   const workout = PersonalizationEngine.getWorkoutRecommendation(userData);
   const mealPlan = PersonalizationEngine.getMealPlan(userData);
 
