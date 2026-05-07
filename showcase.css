@@ -1,0 +1,925 @@
+/* Showcase Styles - High-Resolution UI/UX Display */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 25%, #1e3a5f 50%, #0f2027 75%, #1a0b2e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.1), transparent 50%);
+    pointer-events: none;
+    animation: ambientGlow 20s ease-in-out infinite;
+}
+
+@keyframes ambientGlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Showcase Container */
+.showcase-container {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 1800px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glass Panel Base */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 0 40px rgba(102, 126, 234, 0.1);
+}
+
+.glass-mini {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+        0 4px 16px 0 rgba(31, 38, 135, 0.25),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Desktop Monitor Mockup */
+.desktop-mockup {
+    position: relative;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+}
+
+.monitor-frame {
+    position: relative;
+}
+
+.monitor-screen {
+    width: 1200px;
+    height: 750px;
+    background: rgba(10, 10, 30, 0.95);
+    border-radius: 20px;
+    border: 12px solid #1a1a2e;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.1),
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 100px rgba(102, 126, 234, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.monitor-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, transparent 50%, rgba(139, 92, 246, 0.03) 100%);
+    pointer-events: none;
+}
+
+.monitor-stand {
+    width: 200px;
+    height: 80px;
+    background: linear-gradient(180deg, #2a2a3e 0%, #1a1a2e 100%);
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.monitor-base {
+    width: 300px;
+    height: 20px;
+    background: linear-gradient(180deg, #2a2a3e 0%, #1a1a2e 100%);
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Desktop Content */
+.desktop-content {
+    padding: 2rem;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(102, 126, 234, 0.5) transparent;
+}
+
+.desktop-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.desktop-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.desktop-content::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 10px;
+}
+
+/* Top Navigation */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+
+.logo-showcase {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+}
+
+.nav-center {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+    color: white;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Dashboard Grid */
+.dashboard-grid-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.showcase-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.showcase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 12px 40px 0 rgba(31, 38, 135, 0.45),
+        0 0 60px rgba(102, 126, 234, 0.2);
+}
+
+.large-card {
+    grid-column: span 2;
+}
+
+.wide-card {
+    grid-column: span 3;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+}
+
+.card-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Daily Goal Tracker */
+.goal-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-item {
+    text-align: center;
+}
+
+.goal-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.progress-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 8;
+}
+
+.ring-progress {
+    fill: none;
+    stroke: url(#gradient1);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.6));
+}
+
+.ring-progress.water {
+    stroke: url(#gradient2);
+    filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.6));
+}
+
+.ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.ring-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.ring-total {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Meal Planner */
+.meal-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.meal-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.meal-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.meal-image {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.meal-photo-placeholder {
+    font-size: 3rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.meal-info {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.meal-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: white;
+}
+
+.meal-info p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Training Program */
+.training-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.training-card {
+    border-radius: 15px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.training-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.training-card.featured {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+}
+
+.training-image {
+    height: 150px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.model-placeholder {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.training-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.training-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+}
+
+.training-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.training-info p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.btn-start {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Food Analysis */
+.food-analysis-content {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.upload-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+}
+
+.analysis-text {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.btn-take-photo {
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn-take-photo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+}
+
+/* Exercise Library */
+.exercise-carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(102, 126, 234, 0.5) transparent;
+}
+
+.exercise-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.exercise-carousel::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 10px;
+}
+
+.exercise-thumb {
+    min-width: 120px;
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.exercise-thumb:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.exercise-preview {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+}
+
+.exercise-thumb span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* Mobile Mockup */
+.mobile-mockup {
+    position: relative;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+}
+
+.phone-frame {
+    width: 380px;
+    height: 780px;
+    background: #1a1a2e;
+    border-radius: 50px;
+    padding: 15px;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.1),
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 50px rgba(102, 126, 234, 0.05);
+    position: relative;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 30px;
+    background: #0a0a1e;
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 30, 0.95);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.phone-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, transparent 50%, rgba(139, 92, 246, 0.03) 100%);
+    pointer-events: none;
+}
+
+/* Mobile Content */
+.mobile-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem 1rem;
+}
+
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.mobile-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.avatar-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+}
+
+/* Mobile Stack */
+.mobile-stack {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+}
+
+.mobile-stack::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-card {
+    padding: 1.25rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.card-header-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-header-mobile h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.card-header-mobile span {
+    font-size: 1.5rem;
+}
+
+/* Mobile Goals */
+.mobile-goals {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.mini-ring {
+    text-align: center;
+}
+
+.mini-progress {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mini-inner {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(10, 10, 30, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-inner span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.mini-inner small {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Meals */
+.mobile-meals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mobile-meal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.mobile-meal-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.mobile-meal-info h5 {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.mobile-meal-info p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Training */
+.mobile-training {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.mobile-training-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+}
+
+.mobile-training-info {
+    flex: 1;
+}
+
+.mobile-training-info h5 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.mobile-training-info p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-mobile {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile Upload */
+.mobile-upload {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.upload-icon-mobile {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.5));
+}
+
+.mobile-upload p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Mobile Exercises */
+.mobile-exercises {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.mobile-exercises::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-exercise {
+    min-width: 80px;
+    padding: 1rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-exercise span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile Bottom Nav */
+.mobile-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.75rem;
+    border-radius: 25px;
+    margin-top: auto;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+}
+
+.nav-icon-mobile {
+    font-size: 1.3rem;
+}
+
+.nav-label-mobile {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 1600px) {
+    .showcase-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .monitor-screen {
+        width: 900px;
+        height: 562px;
+    }
+    
+    .dashboard-grid-showcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wide-card {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 1024px) {
+    .monitor-screen {
+        width: 700px;
+        height: 437px;
+    }
+    
+    .phone-frame {
+        width: 300px;
+        height: 620px;
+    }
+    
+    .desktop-content {
+        padding: 1rem;
+    }
+    
+    .dashboard-grid-showcase {
+        gap: 1rem;
+    }
+}
+
+/* SVG Gradients */
+svg defs {
+    display: none;
+}

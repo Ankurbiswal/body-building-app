@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitPro - Your Ultimate Fitness Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing-page" class="section active">
+        <div class="hero-background"></div>
+        <nav class="glass-nav">
+            <div class="nav-container">
+                <div class="logo">FitPro</div>
+                <button class="btn-glass" onclick="showSection('auth-page')">Get Started</button>
+            </div>
+        </nav>
+        
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <h1 class="hero-title">Transform Your Body,<br>Transform Your Life</h1>
+                <p class="hero-subtitle">AI-powered fitness tracking, personalized meal plans, and expert training programs tailored just for you.</p>
+                <button class="btn-primary" onclick="showSection('auth-page')">Start Your Journey</button>
+            </div>
+            
+            <div class="features-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card glass">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Plans</h3>
+                    <p>Custom workouts and nutrition based on your goals</p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="feature-icon">📸</div>
+                    <h3>Photo Tracking</h3>
+                    <p>AI-powered meal analysis from photos</p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="feature-icon">💪</div>
+                    <h3>Expert Training</h3>
+                    <p>Access to diverse training methodologies</p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Analytics</h3>
+                    <p>Track your transformation journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Page -->
+    <section id="auth-page" class="section">
+        <div class="auth-background"></div>
+        <div class="auth-container">
+            <div class="auth-box glass" data-aos="zoom-in">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                    <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                    <p class="auth-link">Don't have an account? <span onclick="switchAuthTab('signup')">Sign up</span></p>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signup-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign Up</button>
+                    <p class="auth-link">Already have an account? <span onclick="switchAuthTab('login')">Login</span></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Onboarding Flow -->
+    <section id="onboarding-page" class="section">
+        <div class="onboarding-background"></div>
+        <div class="onboarding-container">
+            <div class="progress-bar glass">
+                <div class="progress-fill" id="onboarding-progress"></div>
+            </div>
+            
+            <!-- Step 1: Gender -->
+            <div class="onboarding-step glass active" id="step-gender" data-aos="fade-up">
+                <h2>What's your gender?</h2>
+                <p class="step-subtitle">Help us personalize your experience</p>
+                <div class="gender-options">
+                    <button class="option-card glass" data-value="male">
+                        <span class="option-icon">👨</span>
+                        <span>Male</span>
+                    </button>
+                    <button class="option-card glass" data-value="female">
+                        <span class="option-icon">👩</span>
+                        <span>Female</span>
+                    </button>
+                    <button class="option-card glass" data-value="non-binary">
+                        <span class="option-icon">🧑</span>
+                        <span>Non-Binary</span>
+                    </button>
+                    <button class="option-card glass" data-value="prefer-not-to-say">
+                        <span class="option-icon">👤</span>
+                        <span>Prefer Not to Say</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Age & Body Stats -->
+            <div class="onboarding-step glass" id="step-stats" data-aos="fade-up">
+                <h2>Tell us about yourself</h2>
+                <p class="step-subtitle">This helps us create your perfect plan</p>
+                <div class="stats-form">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="user-age" placeholder="25" min="13" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Height (cm)</label>
+                        <input type="number" id="user-height" placeholder="170" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Weight (kg)</label>
+                        <input type="number" id="user-weight" placeholder="70" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Weight (kg)</label>
+                        <input type="number" id="user-target-weight" placeholder="65" required>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="nextStep()">Continue</button>
+            </div>
+            
+            <!-- Step 3: Fitness Goal -->
+            <div class="onboarding-step glass" id="step-goal" data-aos="fade-up">
+                <h2>What's your primary goal?</h2>
+                <p class="step-subtitle">We'll customize everything for you</p>
+                <div class="goal-options">
+                    <button class="option-card glass" data-value="fat-loss">
+                        <span class="option-icon">🔥</span>
+                        <h3>Fat Loss</h3>
+                        <p>Burn fat and get lean</p>
+                    </button>
+                    <button class="option-card glass" data-value="muscle-gain">
+                        <span class="option-icon">💪</span>
+                        <h3>Muscle Gain</h3>
+                        <p>Build size and strength</p>
+                    </button>
+                    <button class="option-card glass" data-value="recomp">
+                        <span class="option-icon">⚖️</span>
+                        <h3>Body Recomp</h3>
+                        <p>Lose fat, gain muscle</p>
+                    </button>
+                    <button class="option-card glass" data-value="maintenance">
+                        <span class="option-icon">🎯</span>
+                        <h3>Maintenance</h3>
+                        <p>Stay fit and healthy</p>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Health Check -->
+            <div class="onboarding-step glass" id="step-health" data-aos="fade-up">
+                <h2>Health & Safety Check</h2>
+                <p class="step-subtitle">Your safety is our priority</p>
+                <div class="health-questions">
+                    <div class="health-question">
+                        <label>Do you have any existing injuries?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="injuries" value="yes"> Yes</label>
+                            <label><input type="radio" name="injuries" value="no" checked> No</label>
+                        </div>
+                        <textarea id="injury-details" placeholder="Please describe (if yes)" class="glass-input"></textarea>
+                    </div>
+                    <div class="health-question">
+                        <label>Do you have any chronic conditions?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="conditions" value="yes"> Yes</label>
+                            <label><input type="radio" name="conditions" value="no" checked> No</label>
+                        </div>
+                        <textarea id="condition-details" placeholder="Please describe (if yes)" class="glass-input"></textarea>
+                    </div>
+                    <div class="health-question">
+                        <label>Current activity level?</label>
+                        <select id="activity-level" class="glass-input">
+                            <option value="sedentary">Sedentary (little/no exercise)</option>
+                            <option value="light">Light (1-3 days/week)</option>
+                            <option value="moderate">Moderate (3-5 days/week)</option>
+                            <option value="active">Active (6-7 days/week)</option>
+                            <option value="very-active">Very Active (athlete)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="completeOnboarding()">Complete Setup</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <section id="dashboard-page" class="section">
+        <div class="dashboard-background"></div>
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar glass">
+            <div class="sidebar-header">
+                <h2>FitPro</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active" onclick="showDashboardSection('overview')">
+                    <span class="menu-icon">📊</span>
+                    <span>Overview</span>
+                </li>
+                <li class="menu-item" onclick="showDashboardSection('meal-planner')">
+                    <span class="menu-icon">🍽️</span>
+                    <span>Meal Planner</span>
+                </li>
+                <li class="menu-item" onclick="showDashboardSection('training')">
+                    <span class="menu-icon">💪</span>
+                    <span>Training</span>
+                </li>
+                <li class="menu-item" onclick="showDashboardSection('progress')">
+                    <span class="menu-icon">📈</span>
+                    <span>Progress</span>
+                </li>
+                <li class="menu-item" onclick="showDashboardSection('profile')">
+                    <span class="menu-icon">👤</span>
+                    <span>Profile</span>
+                </li>
+            </ul>
+            <button class="btn-glass logout-btn" onclick="logout()">Logout</button>
+        </nav>
+        
+        <!-- Main Content Area -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <div class="dashboard-section active" id="overview-section">
+                <div class="section-header" data-aos="fade-down">
+                    <h1>Welcome back, <span id="user-name-display">User</span>!</h1>
+                    <p class="section-subtitle">Here's your fitness overview for today</p>
+                </div>
+                
+                <div class="stats-grid" data-aos="fade-up">
+                    <div class="stat-card glass">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <h3 id="calories-burned">0</h3>
+                            <p>Calories Burned</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-icon">🍽️</div>
+                        <div class="stat-content">
+                            <h3 id="calories-consumed">0</h3>
+                            <p>Calories Consumed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-icon">💧</div>
+                        <div class="stat-content">
+                            <h3 id="water-intake">0L</h3>
+                            <p>Water Intake</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <h3 id="workout-time">0 min</h3>
+                            <p>Workout Time</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card glass" data-aos="fade-right">
+                        <h3>Today's Workout</h3>
+                        <div id="todays-workout" class="workout-preview">
+                            <p>Loading your personalized workout...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card glass" data-aos="fade-left">
+                        <h3>Nutrition Summary</h3>
+                        <div class="macro-rings">
+                            <div class="macro-ring">
+                                <div class="ring-label">Protein</div>
+                                <div class="ring-value" id="protein-value">0g</div>
+                            </div>
+                            <div class="macro-ring">
+                                <div class="ring-label">Carbs</div>
+                                <div class="ring-value" id="carbs-value">0g</div>
+                            </div>
+                            <div class="macro-ring">
+                                <div class="ring-label">Fats</div>
+                                <div class="ring-value" id="fats-value">0g</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Meal Planner Section -->
+            <div class="dashboard-section" id="meal-planner-section">
+                <div class="section-header" data-aos="fade-down">
+                    <h1>Smart Meal Planner</h1>
+                    <p class="section-subtitle">AI-powered nutrition tracking</p>
+                </div>
+                
+                <div class="meal-planner-grid">
+                    <div class="meal-card glass" data-aos="fade-up">
+                        <h3>📸 Photo Meal Tracker</h3>
+                        <div class="photo-upload-area" id="photo-upload">
+                            <div class="upload-placeholder">
+                                <span class="upload-icon">📷</span>
+                                <p>Take or upload a photo of your meal</p>
+                                <p class="upload-hint">AI will analyze portion size and macros</p>
+                                <input type="file" id="meal-photo-input" accept="image/*" capture="environment" hidden>
+                                <button class="btn-primary" onclick="document.getElementById('meal-photo-input').click()">Upload Photo</button>
+                            </div>
+                            <div class="photo-preview hidden" id="photo-preview">
+                                <img id="preview-image" src="" alt="Meal preview">
+                                <div class="analysis-overlay glass">
+                                    <div class="analyzing" id="analyzing-state">
+                                        <div class="spinner"></div>
+                                        <p>Analyzing your meal...</p>
+                                    </div>
+                                    <div class="analysis-results hidden" id="analysis-results">
+                                        <h4>Meal Analysis</h4>
+                                        <div class="analysis-item">
+                                            <span>Estimated Calories:</span>
+                                            <strong id="photo-calories">0</strong>
+                                        </div>
+                                        <div class="analysis-item">
+                                            <span>Protein:</span>
+                                            <strong id="photo-protein">0g</strong>
+                                        </div>
+                                        <div class="analysis-item">
+                                            <span>Carbs:</span>
+                                            <strong id="photo-carbs">0g</strong>
+                                        </div>
+                                        <div class="analysis-item">
+                                            <span>Fats:</span>
+                                            <strong id="photo-fats">0g</strong>
+                                        </div>
+                                        <button class="btn-primary" onclick="saveMealFromPhoto()">Save Meal</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal-card glass" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Today's Meals</h3>
+                        <div id="meals-list" class="meals-list">
+                            <p class="empty-state">No meals logged yet. Start by uploading a photo!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="meal-card glass full-width" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Personalized Meal Plan</h3>
+                        <div id="meal-plan" class="meal-plan-grid">
+                            <!-- Generated based on user goals -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Training Section -->
+            <div class="dashboard-section" id="training-section">
+                <div class="section-header" data-aos="fade-down">
+                    <h1>Training Library</h1>
+                    <p class="section-subtitle">Choose your training style</p>
+                </div>
+                
+                <div class="training-styles" data-aos="fade-up">
+                    <button class="training-style-btn glass active" onclick="filterTraining('all')">All</button>
+                    <button class="training-style-btn glass" onclick="filterTraining('hybrid')">Hybrid</button>
+                    <button class="training-style-btn glass" onclick="filterTraining('hypertrophy')">Hypertrophy</button>
+                    <button class="training-style-btn glass" onclick="filterTraining('strength')">Strength</button>
+                    <button class="training-style-btn glass" onclick="filterTraining('relative-strength')">Relative Strength</button>
+                    <button class="training-style-btn glass" onclick="filterTraining('endurance')">Endurance</button>
+                </div>
+                
+                <div class="exercises-grid" id="exercises-grid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="dashboard-section" id="progress-section">
+                <div class="section-header" data-aos="fade-down">
+                    <h1>Your Progress</h1>
+                    <p class="section-subtitle">Track your transformation</p>
+                </div>
+                
+                <div class="progress-grid">
+                    <div class="progress-card glass" data-aos="fade-up">
+                        <h3>Weight Progress</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="weight-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-card glass" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Body Measurements</h3>
+                        <div id="measurements-list" class="measurements-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <button class="btn-primary" onclick="showMeasurementModal()">Add Measurement</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profile Section -->
+            <div class="dashboard-section" id="profile-section">
+                <div class="section-header" data-aos="fade-down">
+                    <h1>Profile Settings</h1>
+                    <p class="section-subtitle">Manage your account</p>
+                </div>
+                
+                <div class="profile-grid">
+                    <div class="profile-card glass" data-aos="fade-up">
+                        <h3>Personal Information</h3>
+                        <div id="profile-info" class="profile-info">
+                            <!-- Populated from user data -->
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card glass" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Goals & Preferences</h3>
+                        <div id="goals-info" class="goals-info">
+                            <!-- Populated from user data -->
+                        </div>
+                        <button class="btn-primary" onclick="editProfile()">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
